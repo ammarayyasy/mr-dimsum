@@ -26,3 +26,4 @@ Dokumen ini digunakan untuk memantau pemeliharaan website, backlog fitur lanjuta
   - Selesai implementasi Step 2: Sistem akun login/register, proteksi dashboard admin, CRUD warta warta rasa, dan konektor database Google Spreadsheet.
 - **9 November 2026**: 
   - Selesai implementasi Step 1: Landing page lengkap Mr Dimsum (Hero, About, Menu Favorit, Layanan, Kontak, dan Google Maps Jonggol).
+

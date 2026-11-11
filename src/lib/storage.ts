@@ -8,7 +8,12 @@ const UPLOADS_DIR = path.join(process.cwd(), "public", "uploads");
 const ALLOWED_MIME_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
+// Deteksi apakah berjalan di production Vercel atau lokal
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
+const BLOB_TOKEN = process.env.BLOB_READ_WRITE_TOKEN;
+
 export async function ensureUploadsDir(): Promise<void> {
+  if (IS_PRODUCTION) return; // Di production, tidak ada disk lokal
   try {
     await fs.mkdir(UPLOADS_DIR, { recursive: true });
   } catch (err) {
@@ -17,8 +22,9 @@ export async function ensureUploadsDir(): Promise<void> {
 }
 
 /**
- * Menyimpan file yang diunggah ke folder lokal public/uploads/
- * Mengembalikan URL publik, misalnya: "/uploads/img-1731112233.webp"
+ * Menyimpan file yang diunggah:
+ * - Production (Vercel): tersimpan ke Vercel Blob (cloud), dikembalikan URL publik https://...
+ * - Development (lokal): tersimpan ke public/uploads/, dikembalikan path lokal /uploads/...
  */
 export async function saveFile(file: File): Promise<string> {
   if (!ALLOWED_MIME_TYPES.includes(file.type)) {
@@ -33,10 +39,6 @@ export async function saveFile(file: File): Promise<string> {
     );
   }
 
-  await ensureUploadsDir();
-
-  const buffer = Buffer.from(await file.arrayBuffer());
-  
   // Ekstrak ekstensi yang aman
   const originalExt = path.extname(file.name).toLowerCase();
   const safeExt = [".jpg", ".jpeg", ".png", ".webp", ".gif"].includes(originalExt)
@@ -46,28 +48,51 @@ export async function saveFile(file: File): Promise<string> {
   // Nama file unik dengan timestamp & random hash
   const randomSuffix = crypto.randomBytes(6).toString("hex");
   const filename = `media-${Date.now()}-${randomSuffix}${safeExt}`;
+
+  // ─── MODE PRODUCTION: Upload ke Vercel Blob ───────────────────────────────
+  if (IS_PRODUCTION && BLOB_TOKEN) {
+    const { put } = await import("@vercel/blob");
+    const blob = await put(`uploads/${filename}`, file, {
+      access: "public",
+      token: BLOB_TOKEN,
+    });
+    return blob.url; // URL publik dari CDN Vercel Blob, misal: https://xxxx.public.blob.vercel-storage.com/uploads/media-...
+  }
+
+  // ─── MODE DEVELOPMENT: Simpan ke disk lokal ──────────────────────────────
+  await ensureUploadsDir();
+  const buffer = Buffer.from(await file.arrayBuffer());
   const filePath = path.join(UPLOADS_DIR, filename);
-
   await fs.writeFile(filePath, buffer);
-
   return `/uploads/${filename}`;
 }
 
 /**
- * Menghapus file lokal jika ada di folder /uploads/
+ * Menghapus file:
+ * - Production: hapus dari Vercel Blob (via URL lengkap)
+ * - Development: hapus dari disk lokal /uploads/
  */
-export async function deleteFile(relativePath: string): Promise<boolean> {
-  if (!relativePath || !relativePath.startsWith("/uploads/")) {
-    return false; // Jangan hapus file di luar folder uploads (misal /images/hero.png)
-  }
+export async function deleteFile(fileUrl: string): Promise<boolean> {
+  if (!fileUrl) return false;
 
   try {
-    const filename = path.basename(relativePath);
+    // ─── MODE PRODUCTION: Hapus dari Vercel Blob ───────────────────────────
+    if (IS_PRODUCTION && BLOB_TOKEN && fileUrl.startsWith("https://")) {
+      const { del } = await import("@vercel/blob");
+      await del(fileUrl, { token: BLOB_TOKEN });
+      return true;
+    }
+
+    // ─── MODE DEVELOPMENT: Hapus dari disk lokal ──────────────────────────
+    if (!fileUrl.startsWith("/uploads/")) {
+      return false; // Jangan hapus aset statis seperti /images/hero.png
+    }
+    const filename = path.basename(fileUrl);
     const fullPath = path.join(UPLOADS_DIR, filename);
     await fs.unlink(fullPath);
     return true;
   } catch (err) {
-    console.warn("Gagal menghapus file lama:", relativePath, err);
+    console.warn("Gagal menghapus file lama:", fileUrl, err);
     return false;
   }
 }

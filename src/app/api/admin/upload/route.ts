@@ -18,10 +18,13 @@ export async function POST(request: Request) {
 
     const publicUrl = await saveFile(file);
 
+    const isCloud = publicUrl.startsWith("https://");
     return NextResponse.json({
       success: true,
       url: publicUrl,
-      message: "Gambar berhasil diunggah ke penyimpanan lokal.",
+      message: isCloud
+        ? "Gambar berhasil diunggah ke penyimpanan cloud (Vercel Blob)."
+        : "Gambar berhasil diunggah ke penyimpanan lokal.",
     });
   } catch (err: unknown) {
     const errorMsg = err instanceof Error ? err.message : "Gagal mengunggah file.";
