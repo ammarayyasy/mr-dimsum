@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <!-- Background Card -->
+  <rect width="600" height="800" rx="36" fill="#FFFFFF"/>
+  <rect x="12" y="12" width="576" height="776" rx="28" fill="#FFFFFF" stroke="#FFEADA" stroke-width="4"/>
+
+  <!-- Top Header Red Banner (Indonesian National Standard) -->
+  <path d="M 12 40 Q 12 12 40 12 L 560 12 Q 588 12 588 40 L 588 100 L 12 100 Z" fill="#ED1C24" />
+  
+  <!-- QRIS Official Standard Logo text -->
+  <text x="300" y="65" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="38" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">QRIS</text>
+  <text x="300" y="88" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">QR CODE INDONESIAN STANDARD</text>
+
+  <!-- Merchant Info Container -->
+  <rect x="40" y="120" width="520" height="90" rx="18" fill="#FFF8F5" stroke="#FFEADA" stroke-width="2"/>
+  
+  <text x="300" y="152" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="22" fill="#4D2A00" text-anchor="middle">MR DIMSUM JONGGOL</text>
+  <text x="300" y="174" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="600" font-size="13" fill="#8D4B00" text-anchor="middle">NMID : ID1024388192001 • A01</text>
+  <text x="300" y="194" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="500" font-size="11" fill="#7A685B" text-anchor="middle">Kawasan Jonggol, Bogor • Artisan Homemade</text>
+
+  <!-- QR Code Frame Container -->
+  <rect x="70" y="230" width="460" height="460" rx="24" fill="#FFFFFF" stroke="#4D2A00" stroke-width="4"/>
+  
+  <!-- Top Left Finder Pattern -->
+  <rect x="110" y="270" width="90" height="90" rx="14" fill="#4D2A00" />
+  <rect x="126" y="286" width="58" height="58" rx="8" fill="#FFFFFF" />
+  <rect x="138" y="298" width="34" height="34" rx="4" fill="#4D2A00" />
+
+  <!-- Top Right Finder Pattern -->
+  <rect x="400" y="270" width="90" height="90" rx="14" fill="#4D2A00" />
+  <rect x="416" y="286" width="58" height="58" rx="8" fill="#FFFFFF" />
+  <rect x="428" y="298" width="34" height="34" rx="4" fill="#4D2A00" />
+
+  <!-- Bottom Left Finder Pattern -->
+  <rect x="110" y="560" width="90" height="90" rx="14" fill="#4D2A00" />
+  <rect x="126" y="576" width="58" height="58" rx="8" fill="#FFFFFF" />
+  <rect x="138" y="588" width="34" height="34" rx="4" fill="#4D2A00" />
+
+  <!-- Decorative QR Data Blocks -->
+  <!-- Row 1 -->
+  <rect x="225" y="270" width="22" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="260" y="270" width="45" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="320" y="270" width="22" height="65" rx="3" fill="#4D2A00"/>
+  <rect x="355" y="290" width="30" height="22" rx="3" fill="#4D2A00"/>
+
+  <!-- Row 2 -->
+  <rect x="225" y="330" width="45" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="285" y="315" width="22" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="355" y="330" width="22" height="45" rx="3" fill="#4D2A00"/>
+
+  <!-- Center Logo Badge -->
+  <circle cx="300" cy="460" r="44" fill="#FEB316" stroke="#4D2A00" stroke-width="4"/>
+  <circle cx="300" cy="460" r="38" fill="#4D2A00"/>
+  <text x="300" y="456" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="15" fill="#FEB316" text-anchor="middle">MR</text>
+  <text x="300" y="473" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="11" fill="#FFFFFF" text-anchor="middle">DIMSUM</text>
+
+  <!-- Mid & Lower Blocks -->
+  <rect x="110" y="380" width="65" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="190" y="380" width="45" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="130" y="420" width="45" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="110" y="460" width="45" height="30" rx="3" fill="#4D2A00"/>
+  <rect x="170" y="450" width="22" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="210" y="445" width="30" height="22" rx="3" fill="#4D2A00"/>
+
+  <!-- Right side blocks -->
+  <rect x="400" y="380" width="45" height="30" rx="3" fill="#4D2A00"/>
+  <rect x="460" y="380" width="30" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="365" y="415" width="22" height="50" rx="3" fill="#4D2A00"/>
+  <rect x="400" y="430" width="45" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="460" y="445" width="30" height="55" rx="3" fill="#4D2A00"/>
+  <rect x="410" y="475" width="35" height="22" rx="3" fill="#4D2A00"/>
+
+  <!-- Bottom Blocks -->
+  <rect x="225" y="520" width="65" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="310" y="520" width="45" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="375" y="520" width="45" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="440" y="520" width="50" height="30" rx="3" fill="#4D2A00"/>
+  <rect x="225" y="560" width="30" height="65" rx="3" fill="#4D2A00"/>
+  <rect x="275" y="580" width="55" height="22" rx="3" fill="#4D2A00"/>
+  <rect x="350" y="585" width="45" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="415" y="575" width="30" height="45" rx="3" fill="#4D2A00"/>
+  <rect x="465" y="570" width="25" height="60" rx="3" fill="#4D2A00"/>
+  <rect x="275" y="620" width="55" height="30" rx="3" fill="#4D2A00"/>
+  <rect x="415" y="635" width="50" height="15" rx="3" fill="#4D2A00"/>
+
+  <!-- Supported Payment Wallets Footer Bar -->
+  <rect x="40" y="710" width="520" height="60" rx="16" fill="#F8F6F2" stroke="#FFEADA" stroke-width="1.5"/>
+  <text x="300" y="734" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="700" font-size="12" fill="#4D2A00" text-anchor="middle" letter-spacing="1">MENERIMA SELURUH PEMBAYARAN DIGITAL</text>
+  <text x="300" y="754" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="600" font-size="11" fill="#8D4B00" text-anchor="middle">BCA • Mandiri • BRI • BNI • GoPay • OVO • Dana • ShopeePay</text>
+</svg>
+

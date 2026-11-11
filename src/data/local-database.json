@@ -1,0 +1,85 @@
+{
+  "Roles": [
+    {
+      "id": "role-admin",
+      "name": "admin",
+      "description": "Administrator utama dengan akses penuh ke seluruh sistem dan warta",
+      "permissions": [
+        "all"
+      ],
+      "is_system": true,
+      "created_at": "2026-11-10T01:36:40.954Z"
+    },
+    {
+      "id": "role-user",
+      "name": "user",
+      "description": "Pengguna pelanggan umum terdaftar",
+      "permissions": [
+        "read_news",
+        "order"
+      ],
+      "is_system": true,
+      "created_at": "2026-11-10T01:36:40.954Z"
+    }
+  ],
+  "Users": [
+    {
+      "id": "user-admin-default",
+      "name": "Admin Mr Dimsum",
+      "email": "admin@gmail.com",
+      "password_hash": "$2b$10$qKzYln9cJtveNGG89DqFRu5rMUFS340wwmcIM7c6u.ktobhkA5BDy",
+      "role_id": "role-admin",
+      "status": "active",
+      "created_at": "2026-11-10T01:36:40.954Z",
+      "updated_at": "2026-11-10T01:36:40.954Z"
+    },
+    {
+      "name": "Pelanggan Jonggol",
+      "email": "pelanggan@jonggol.id",
+      "password_hash": "$2b$10$/viukdyAq.pwMLphqFWk1OhOksSlgx1egHr26dNc1Mpn6w.TgdH1K",
+      "role_id": "role-user",
+      "status": "active",
+      "created_at": "2026-11-10T01:40:26.751Z",
+      "updated_at": "2026-11-10T01:40:26.751Z",
+      "id": "local-1794274826751-n1ps6"
+    }
+  ],
+  "News": [
+    {
+      "id": "news-1",
+      "title": "Rahasia Kulit Hakau Transparan & Gurih Kenyal Ala Pengrajin",
+      "slug": "rahasia-kulit-hakau-transparan",
+      "excerpt": "Kupas tuntas teknik adonan tang mien khusus untuk menghasilkan kulit hakau kristal yang lentur, bening, dan tidak mudah pecah saat dikukus panas.",
+      "content": "Proses pembuatan hakau dimulai dari pemilihan tepung gandum bebas gluten (tang mien) kualitas prima yang diseduh dengan air mendidih murni. Teknik pengadukan dengan pisau koki pipih menghasilkan ketebalan yang pas dan tekstur kenyal sempurna khas Mr Dimsum Jonggol.",
+      "thumbnail_path": "/images/hero-dimsum.png",
+      "status": "published",
+      "author_id": "Admin Mr Dimsum",
+      "created_at": "2026-11-10T01:36:40.954Z",
+      "updated_at": "2026-11-10T01:36:40.954Z"
+    },
+    {
+      "id": "news-2",
+      "title": "Resep Saus Chili Oil Wangi Semerbak Pendamping Dimsum",
+      "slug": "resep-saus-chili-oil-wangi-semerbak",
+      "excerpt": "Perpaduan cabai kering pilihan, bawang putih cincang, dan minyak aromatik rempah yang menghasilkan pedas gurih nagih tanpa rasa langu.",
+      "content": "Chili oil kami dimasak perlahan pada suhu terkontrol bersama rempah kayu manis, bunga lawang, dan minyak wijen murni. Menghasilkan aroma khas yang melengkapi kenikmatan siomay dan pangsit goreng Mr Dimsum.",
+      "thumbnail_path": "/images/crispy-platter.png",
+      "status": "published",
+      "author_id": "Admin Mr Dimsum",
+      "created_at": "2026-11-10T01:36:40.954Z",
+      "updated_at": "2026-11-10T01:36:40.954Z"
+    },
+    {
+      "id": "news-3",
+      "title": "Cara Mengukus Frozen Dimsum Agar Lembut Seperti Makan di Kedai",
+      "slug": "cara-mengukus-frozen-dimsum",
+      "excerpt": "Panduan praktis menyajikan stok dimsum beku di rumah dalam 10 menit tanpa takut kulit mengeras atau isian daging belum matang.",
+      "content": "Pastikan kukusan sudah beruap banyak sebelum memasukkan dimsum beku. Jangan biarkan menempel langsung pada logam kukusan, gunakan kertas baking berpori atau daun pisang agar aroma semakin harum dan kulit tetap lembut.",
+      "thumbnail_path": "/images/gourmet-variety.png",
+      "status": "published",
+      "author_id": "Admin Mr Dimsum",
+      "created_at": "2026-11-10T01:36:40.954Z",
+      "updated_at": "2026-11-10T01:36:40.954Z"
+    }
+  ]
+}
